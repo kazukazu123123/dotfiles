@@ -12,15 +12,23 @@ setopt promptsubst
 
 alias _lazy='zinit ice wait silent'
 
+       # Git
+       zinit wait lucid as"completion" atload"zicompinit; zicdreplay" "https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh"
+
+       # Auto suggestions
 _lazy; zinit load zsh-users/zsh-autosuggestions
+
+       # History search
 _lazy; zinit load zsh-users/zsh-history-substring-search
+
+       # History search (multi-word)
 _lazy; zinit load zdharma-continuum/history-search-multi-word
+
+       # Syntax higilight
        zinit load zdharma-continuum/fast-syntax-highlighting
 
-       zinit snippet OMZP::history
+       # Theme
        zinit snippet ~/.dotfiles/theme.zsh-theme
-
-       zstyle ':omz:alpha:lib:git' async-prompt no
 
 unalias _lazy
 

@@ -12,8 +12,8 @@ setopt promptsubst
 
 alias _lazy='zinit ice wait silent'
 
-       # Git
-       zinit wait lucid as"completion" atload"zicompinit; zicdreplay" "https://github.com/git/git.git" "contrib/completion/git-completion.zsh"
+       # Git snippet
+       zinit snippet OMZL::git.zsh
 
        # Auto suggestions
 _lazy; zinit load zsh-users/zsh-autosuggestions

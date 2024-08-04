@@ -11,6 +11,13 @@ else
   esac
 fi
 
+git_prompt_info() {
+  local branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+  if [ -n "$branch" ]; then
+    echo "($branch)"
+  fi
+}
+
 PS1='$FG[008]╭╴ $([ "$SESSION_TYPE" = remote/ssh ] && echo "(ssh) ")$($is_chroot&&echo "(chroot) ")%(!.$FG[009]$FX[blink].$FG[012])%n$FX[reset]$FG[008] @ $FG[012]%M$FG[008] in $FG[012]%~$FX[reset]
 $FG[008]╰╴$FX[reset]$(git_prompt_info) %(?.$FG[001].$FG[004])❥$FX[reset] '
 PS2='%{$fg[red]%}\ %{$reset_color%}'

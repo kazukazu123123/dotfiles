@@ -1,13 +1,13 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Check if git is installed
-if [ !command -v git &> /dev/null ]; then
+if [ ! git &> /dev/null ]; then
     echo "Error: git is not installed. Please install git and try again."
     exit 1
 fi
 
 # Check if zsh is installed
-if [ !command -v zsh &> /dev/null ]; then
+if [ ! zsh &> /dev/null ]; then
     echo "Error: zsh is not installed. Please install zsh and try again."
     exit 1
 fi
@@ -34,7 +34,7 @@ fi
 cd ~/.dotfiles || { echo "Failed to change directory to ~/.dotfiles."; exit 1; }
 
 # Make install.sh executable if it exists
-if ./install.sh; then
+if [ -f ./install.sh ]; then
     chmod +x install.sh
 else
     echo "Error: install.sh not found in ~/.dotfiles."

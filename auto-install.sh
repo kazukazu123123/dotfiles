@@ -30,6 +30,9 @@ if [[ -z "$(ls -A ~/.dotfiles 2> /dev/null)" ]]; then
     git clone https://github.com/kazukazu123123/dotfiles ~/.dotfiles || { echo "Failed to clone repository."; exit 1; }
 fi
 
+# Change to the .dotfiles directory
+cd ~/.dotfiles || { echo "Failed to change directory to ~/.dotfiles."; exit 1; }
+
 # Execute install.sh and capture the exit status
 if ./install.sh; then
     echo "Type 'exec zsh' to reload your shell and enjoy!"

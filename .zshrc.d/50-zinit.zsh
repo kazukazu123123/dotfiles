@@ -28,6 +28,8 @@ _lazy; zinit load zdharma-continuum/history-search-multi-word
        zinit snippet OMZP::history
        zinit snippet ~/.dotfiles/theme.zsh-theme
 
+       zstyle ':omz:alpha:lib:git' async-prompt no
+
 unalias _lazy
 
 bindkey "^R" history-search-multi-word

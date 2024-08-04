@@ -12,9 +12,6 @@ setopt promptsubst
 
 alias _lazy='zinit ice wait silent'
 
-       # Git snippet
-       zinit snippet OMZL::git.zsh
-
        # Auto suggestions
 _lazy; zinit load zsh-users/zsh-autosuggestions
 

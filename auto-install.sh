@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # Check if git is installed
 if ! command -v git &> /dev/null; then
@@ -13,7 +13,7 @@ if ! command -v zsh &> /dev/null; then
 fi
 
 # If .dotfiles directory exists, prompt user to delete and recreate it
-if [[ -d ~/.dotfiles ]]; then
+if [ -d ~/.dotfiles ]; then
     echo "~/.dotfiles directory already exists."
     read -p "Do you want to delete and recreate it? (y/n): " answer
     if [[ $answer =~ ^[Yy]$ ]]; then
@@ -26,7 +26,7 @@ if [[ -d ~/.dotfiles ]]; then
 fi
 
 # Clone the repository if the dotfiles directory is empty
-if [[ -z "$(ls -A ~/.dotfiles 2> /dev/null)" ]]; then
+if [ -z "$(ls -A ~/.dotfiles 2> /dev/null)" ]; then
     git clone https://github.com/kazukazu123123/dotfiles ~/.dotfiles || { echo "Failed to clone repository."; exit 1; }
 fi
 
@@ -34,7 +34,7 @@ fi
 cd ~/.dotfiles || { echo "Failed to change directory to ~/.dotfiles."; exit 1; }
 
 # Make install.sh executable if it exists
-if [[ -f install.sh ]]; then
+if ./install.sh; then
     chmod +x install.sh
 else
     echo "Error: install.sh not found in ~/.dotfiles."

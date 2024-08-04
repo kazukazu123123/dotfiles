@@ -33,6 +33,14 @@ fi
 # Change to the .dotfiles directory
 cd ~/.dotfiles || { echo "Failed to change directory to ~/.dotfiles."; exit 1; }
 
+# Make install.sh executable if it exists
+if [[ -f install.sh ]]; then
+    chmod +x install.sh
+else
+    echo "Error: install.sh not found in ~/.dotfiles."
+    exit 1
+fi
+
 # Execute install.sh and capture the exit status
 if ./install.sh; then
     echo "Type 'exec zsh' to reload your shell and enjoy!"

@@ -13,22 +13,22 @@ if ! command -v zsh &> /dev/null; then
 fi
 
 # If .dotfiles directory exists, prompt user to delete and recreate it
-#if [[ -d ~/.dotfiles ]]; then
-#    echo "~/.dotfiles directory already exists."
-#    read -p "Do you want to delete and recreate it? (y/n): " answer
-#    if [[ $answer =~ ^[Yy]$ ]]; then
-#        rm -rf ~/.dotfiles
-#        echo "Deleted ~/.dotfiles directory."
-#    else
-#        echo "Aborting installation."
-#        exit 1
-#    fi
-#fi
+if [[ -d ~/.dotfiles ]]; then
+    echo "~/.dotfiles directory already exists."
+    read -p "Do you want to delete and recreate it? (y/n): " answer
+    if [[ $answer =~ ^[Yy]$ ]]; then
+        rm -rf ~/.dotfiles
+        echo "Deleted ~/.dotfiles directory."
+    else
+        echo "Aborting installation."
+        exit 1
+    fi
+fi
 
 # Clone the repository if the dotfiles directory is empty
-#if [[ -z "$(ls -A ~/.dotfiles 2> /dev/null)" ]]; then
-#    git clone https://github.com/kazukazu123123/dotfiles ~/.dotfiles || { echo "Failed to clone repository."; exit 1; }
-#fi
+if [[ -z "$(ls -A ~/.dotfiles 2> /dev/null)" ]]; then
+    git clone https://github.com/kazukazu123123/dotfiles ~/.dotfiles || { echo "Failed to clone repository."; exit 1; }
+fi
 
 # Execute install.sh and capture the exit status
 if ./install.sh; then

@@ -5,18 +5,12 @@ alias ff='fastfetch'
 
 sudo=sudo
 if type doas > /dev/null; then
-  sudo=doas
+    sudo=doas
 fi
 
-if [[ -f /etc/os-release ]]; then
-  case "$(grep ^ID= /etc/os-release | cut -d= -f2)" in
-    debian)
-      alias u='sudo apt update && sudo apt upgrade -y'
-      alias i='sudo apt install -y'
-      alias p='sudo apt purge --autoremove -y'
-      alias s='apt search'
-      ;;
-    *)
-      ;;
-  esac
+if [[ -f /etc/os-release ]] && grep -q debian /etc/os-release; then
+    alias u="${sudo} apt update && ${sudo} apt upgrade -y"
+    alias i="${sudo} apt install -y"
+    alias p="${sudo} apt purge --autoremove -y"
+    alias s="apt search"
 fi

@@ -12,23 +12,23 @@ setopt promptsubst
 
 alias _lazy='zinit ice wait silent'
 
-       # Git snippet
-       zinit snippet OMZL::git.zsh
+# Git snippet
+zinit snippet OMZL::git.zsh
 
-       # Auto suggestions
+# Auto suggestions
 _lazy; zinit load zsh-users/zsh-autosuggestions
 
-       # History search
+# History search
 _lazy; zinit load zsh-users/zsh-history-substring-search
 
-       # History search (multi-word)
+# History search (multi-word)
 _lazy; zinit load zdharma-continuum/history-search-multi-word
 
-       # Syntax higilight
-       zinit load zdharma-continuum/fast-syntax-highlighting
+# Syntax higilight
+zinit load zdharma-continuum/fast-syntax-highlighting
 
-       # Theme
-       zinit snippet ~/.dotfiles/theme.zsh-theme
+# Theme
+zinit snippet ~/.dotfiles/theme.zsh-theme
 
 unalias _lazy
 

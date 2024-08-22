@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 # Check if git is installed
-if [ ! git &> /dev/null ]; then
+if ! command -v git &> /dev/null; then
     echo "Error: git is not installed. Please install git and try again."
     exit 1
 fi
 
 # Check if zsh is installed
-if [ ! zsh &> /dev/null ]; then
+if ! command -v zsh &> /dev/null; then
     echo "Error: zsh is not installed. Please install zsh and try again."
     exit 1
 fi

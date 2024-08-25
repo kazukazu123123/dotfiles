@@ -15,7 +15,7 @@ fi
 # If .dotfiles directory exists, prompt user to delete and recreate it
 if [ -d ~/.dotfiles ]; then
 	echo "$HOME/.dotfiles directory already exists."
-	read -pr "Do you want to delete and recreate it? (y/n): " answer
+	read -p "Do you want to delete and recreate it? (y/n): " answer
 	if [[ $answer =~ ^[Yy]$ ]]; then
 		rm -rf ~/.dotfiles
 		echo "Deleted ~/.dotfiles directory."

@@ -35,17 +35,19 @@ cd ~/.dotfiles || { echo "Failed to change directory to ~/.dotfiles."; exit 1; }
 
 # Make install.sh executable if it exists
 if [ -f ./install.sh ]; then
+	echo "Running 'chmod +x install.sh'..."
 	chmod +x install.sh
 else
 	echo "Error: install.sh not found in ~/.dotfiles."
 	exit 1
 fi
 
-# Make run_once_before_install.sh executable if it exists
-if [ -f ./run_once_before_install.sh ]; then
-	chmod +x run_once_before_install.sh
+# Make run_once_before_install-zimfw.sh executable if it exists
+if [ -f ./run_once_before_install-zimfw.sh ]; then
+	echo "Running 'chmod +x run_once_before_install-zimfw.sh'..."
+	chmod +x run_once_before_install-zimfw.sh
 else
-	echo "Error: run_once_before_install.sh not found in ~/.dotfiles."
+	echo "Error: run_once_before_install-zimfw.sh not found in ~/.dotfiles."
 	exit 1
 fi
 

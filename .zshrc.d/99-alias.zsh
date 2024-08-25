@@ -5,7 +5,7 @@ alias ff='fastfetch'
 
 sudo=sudo
 if type doas > /dev/null; then
-	sudo=doas
+    sudo=doas
 fi
 
 if [[ -f /etc/os-release ]] && grep -q debian /etc/os-release; then

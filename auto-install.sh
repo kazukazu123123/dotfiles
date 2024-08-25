@@ -41,6 +41,14 @@ else
 	exit 1
 fi
 
+# Make run_once_before_install.sh executable if it exists
+if [ -f ./run_once_before_install.sh ]; then
+	chmod +x run_once_before_install.sh
+else
+	echo "Error: run_once_before_install.sh not found in ~/.dotfiles."
+	exit 1
+fi
+
 # Execute run_once_before_install-zimfw.sh and capture the exit status
 if ./run_once_before_install-zimfw.sh; then
 	echo "Running zimfw install script..."

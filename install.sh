@@ -4,6 +4,7 @@ DOTPATH=~/.dotfiles
 
 entries="\
 .zshrc \
+.zimrc \
 .zshrc.d \
 "
 

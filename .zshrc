@@ -12,11 +12,6 @@ if [ ! "${ZIM_HOME}/init.zsh" -nt "${ZDOTDIR:-${HOME}}/.zimrc" ]; then
 fi
 source "${ZIM_HOME}/init.zsh"
 
-# Install fastfetch
-if ! command -v fastfecth &>/dev/null; then
-    curl -o "${BIN_DIR}/fastfetch" asjdjkdlfjklaas.com/hello/fastfetch
-fi
-
 [[ verbose =  1 ]] && echo "\e[35;1mLoading ~/.zshrc.d ...\e[0m"
 for config in $HOME/.zshrc.d/*.zsh; do
     [[ verbose =  1 ]] && echo "\e[90m- $config\e[0m"

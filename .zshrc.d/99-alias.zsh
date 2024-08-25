@@ -3,6 +3,8 @@ alias ls='ls --color=auto'
 alias la='ls -lah'
 alias ff='fastfetch'
 
+alias cls='clear'
+
 sudo=sudo
 if type doas > /dev/null; then
     sudo=doas

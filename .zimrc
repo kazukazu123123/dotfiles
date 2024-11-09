@@ -9,9 +9,10 @@ zmodule git-info
 zmodule completion
 zmodule zsh-users/zsh-completions --fpath src
 
+zmodule zsh-users/zsh-syntax-highlighting
+
 zmodule zdharma-continuum/history-search-multi-word
 zmodule zsh-users/zsh-history-substring-search
-zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-autosuggestions
 
 zstyle ':zim:termtitle' format '%n@%m'

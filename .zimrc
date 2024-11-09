@@ -4,8 +4,6 @@ zmodule input
 zmodule termtitle
 zmodule utility
 
-zmodule git-info
-
 zmodule completion
 zmodule zsh-users/zsh-completions --fpath src
 

@@ -11,44 +11,6 @@ else
     esac
 fi
 
-FG_GRAY='%F{008}'
-FG_RED='%F{001}'
-FG_GREEN='%F{002}'
-FG_YELLOW='%F{003}'
-FG_BLUE='%F{004}'
-FG_CYAN='%F{006}'
-FG_MAGENTA='%F{009}'
-FG_WHITE='%F{012}'
-RESET='%f%b'
-
-# Color settings
-FG_GRAY='%F{008}'
-FG_RED='%F{001}'
-FG_GREEN='%F{002}'
-FG_YELLOW='%F{003}'
-FG_BLUE='%F{004}'
-FG_CYAN='%F{006}'
-FG_MAGENTA='%F{009}'
-FG_WHITE='%F{012}'
-RESET='%f%b'
-
-# Prompt elements
-USER_PROMPT="${FG_MAGENTA}%(!.%B%n.%n)${RESET}"     # Username, changes depending on whether the user is root
-HOST_PROMPT="${FG_WHITE}%M${RESET}"                 # Hostname
-DIR_PROMPT="${FG_WHITE}%~${RESET}"                  # Current directory
-
-# Session information
-SESSION_PREFIX="${FG_GRAY}╭╴ "                     # Starting decoration
-SSH_INDICATOR='$([ "$SESSION_TYPE" = remote/ssh ] && echo "(ssh) ")'  # Checks if it's an SSH session
-CHROOT_INDICATOR='$([ "$is_chroot" = true ] && echo "(chroot) ")'     # Checks if it's a chroot session
-
-# Status indicators
-PROMPT_SUCCESS="${FG_RED}❥${RESET}"                # Prompt icon on command success
-PROMPT_FAIL="${FG_BLUE}❥${RESET}"                  # Prompt icon on command failure
-
-# Assembling the prompt
-PS1="${SESSION_PREFIX}${SSH_INDICATOR}${CHROOT_INDICATOR}${USER_PROMPT}${FG_GRAY} @ ${HOST_PROMPT} in ${DIR_PROMPT}
-${FG_GRAY}╰╴${RESET}%(?.${PROMPT_SUCCESS}.${PROMPT_FAIL}) "
-
-# Secondary prompt
+PS1='%F{008}╭╴ $([ "$SESSION_TYPE" = remote/ssh ] && echo "(ssh) ")$([ "$is_chroot" = true ] && echo "(chroot) ")%(!.%F{009}%B.%F{012})%n%f%b%F{008} @ %F{012}%M%F{008} in %F{012}%~%f%b
+%F{008}╰╴%f %(?.%F{001}.%F{004})❥%f '
 PS2='%F{red}\ %f'

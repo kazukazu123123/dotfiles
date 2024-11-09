@@ -3,7 +3,6 @@
 DOTPATH=~/.dotfiles
 
 entries="\
-.zshenv \
 .zshrc \
 .zimrc \
 .zshrc.d \

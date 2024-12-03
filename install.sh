@@ -3,9 +3,10 @@
 DOTPATH=~/.dotfiles
 
 entries="\
+.tmux.conf \
+.zimrc \
 .zshenv \
 .zshrc \
-.zimrc \
 .zshrc.d \
 "
 

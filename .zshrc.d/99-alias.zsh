@@ -50,4 +50,9 @@ elif [[ -f /etc/os-release ]] && grep -q debian /etc/os-release; then
     alias i="${sudo} apt install -y"
     alias p="${sudo} apt purge --autoremove -y"
     alias s="apt search"
+elif [[ -f /etc/os-release ]] && grep -qE 'fedora|rhel' /etc/os-release; then
+    alias u="${sudo} dnf update -y"
+    alias i="${sudo} dnf install -y"
+    alias p="${sudo} dnf erase -y"
+    alias s="dnf search"
 fi

@@ -40,7 +40,7 @@ if [[ -f /etc/arch-release ]]; then
             aur="${sudo} ${aur}"
         fi
     fi
-    
+
     alias u="${aur} -Syyu"
     alias i="${aur} -S"
     alias p="${aur} -R"

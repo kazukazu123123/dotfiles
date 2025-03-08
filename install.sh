@@ -7,6 +7,7 @@ entries="\
 .zshrc \
 .zimrc \
 .zshrc.d \
+paru/paru.conf \
 "
 
 for f in $entries; do

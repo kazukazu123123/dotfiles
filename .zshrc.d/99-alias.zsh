@@ -49,10 +49,17 @@ if [[ -f /etc/arch-release ]]; then
     alias p="${aur} -R"
     alias s="${aur}"
 elif [[ -f /etc/os-release ]] && grep -q debian /etc/os-release; then
-    alias u="${sudo} apt update && ${sudo} apt upgrade -y"
-    alias i="${sudo} apt install -y"
-    alias p="${sudo} apt purge --autoremove -y"
-    alias s="apt search"
+    if type nala > /dev/null; then
+        alias u="${sudo} nala upgrade -y"
+        alias i="${sudo} nala install -y"
+        alias p="${sudo} nala remove --purge -y"
+        alias s="nala search"
+    else
+        alias u="${sudo} apt update && ${sudo} apt upgrade -y"
+        alias i="${sudo} apt install -y"
+        alias p="${sudo} apt purge --autoremove -y"
+        alias s="apt search"
+    fi
 elif [[ -f /etc/os-release ]] && grep -qE 'fedora|rhel' /etc/os-release; then
     alias u="${sudo} dnf update -y"
     alias i="${sudo} dnf install -y"

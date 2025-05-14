@@ -52,7 +52,7 @@ elif [[ -f /etc/os-release ]] && grep -q debian /etc/os-release; then
     if type nala > /dev/null; then
         alias u="${sudo} nala upgrade -y"
         alias i="${sudo} nala install -y"
-        alias p="${sudo} nala remove --purge -y"
+        alias p="${sudo} nala purge -y"
         alias s="nala search"
     else
         alias u="${sudo} apt update && ${sudo} apt upgrade -y"

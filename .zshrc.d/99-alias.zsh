@@ -8,8 +8,8 @@ alias cls='clear'
 alias c='cargo'
 alias g='git'
 
-alias dc='docker-compose'
-alias downrm='docker-compose down --rmi=all --volumes --remove-orphans'
+alias dc='docker compose'
+alias downrm='docker compose down --rmi=all --volumes --remove-orphans'
 
 sudo=sudo
 if type doas > /dev/null; then

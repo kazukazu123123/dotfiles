@@ -1,3 +1,5 @@
+setopt prompt_subst
+
 is_chroot=false
 diff /proc/1/mountinfo /proc/self/mountinfo &>/dev/null
 [ $? = 1 ] && is_chroot=true

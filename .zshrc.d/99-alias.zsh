@@ -25,27 +25,19 @@ if [[ -f /etc/arch-release ]]; then
             break
         fi
     done
-
-    # If an AUR helper is found, disable direct pacman usage for interactive sessions
-    if [[ "${aur}" != "pacman" ]]; then
-        alias pacman='echo -e "\e[31;1mError: Direct usage of pacman is disabled. Please use '${aur}' instead.\e[0m"; false'
-    fi
-
     if [[ ${aur} = pacman ]]; then
         if [[ ! -e ~/.dotfiles.aurignore ]] && read -q "REPLY?No AUR helper was found, do you want to install paru-bin from AUR? [y/N]: "; then
             echo
-            echo -e '\n\e[30;1mCloning `\e[0mhttps://aur.archlinux.org/paru-bin.git\e[30;1m` into `\e[0m/tmp/paru\e[30;1m` ...\e[0m\n'
+            echo '\n\e[30;1mCloning `\e[0mhttps://aur.archlinux.org/paru-bin.git\e[30;1m` into `\e[0m/tmp/paru\e[30;1m` ...\e[0m\n'
             git clone https://aur.archlinux.org/paru-bin.git /tmp/paru
             cd /tmp/paru
-            echo -e '\n\e[30;1mRunning `\e[0mmakepkg -si --noconfirm\e[30;1m` ...\e[0m\n'
+            echo '\n\e[30;1mRunning `\e[0mmakepkg -si --noconfirm\e[30;1m` ...\e[0m\n'
             makepkg -si --noconfirm
             cd ~
-            echo -e '\n\e[30;1mRemoving `\e[0m/tmp/paru\e[30;1m` ...\e[0m'
+            echo '\n\e[30;1mRemoving `\e[0m/tmp/paru\e[30;1m` ...\e[0m'
             rm -rf /tmp/paru
-            echo -e '\e[32;1mSuccess!\e[0m\n'
+            echo '\e[32;1mSuccess!\e[0m\n'
             aur=paru
-            # Update alias to point to the newly installed paru
-            alias pacman='echo -e "\e[31;1mError: Direct usage of pacman is disabled. Please use paru instead.\e[0m"; false'
         else
             touch ~/.dotfiles.aurignore
             aur="${sudo} ${aur}"

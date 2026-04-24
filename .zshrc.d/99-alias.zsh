@@ -26,9 +26,9 @@ if [[ -f /etc/arch-release ]]; then
         fi
     done
     if [[ ${aur} = pacman ]]; then
-        if [[ ! -e ~/.dotfiles.aurignore ]] && read -q "REPLY?No AUR helper was found, do you want to install paru-bin from AUR? [y/N]: "; then
+        if [[ ! -e ~/.dotfiles.aurignore ]] && read -q "REPLY?No AUR helper was found, do you want to install paru from AUR? [y/N]: "; then
             echo
-            echo '\n\e[30;1mCloning `\e[0mhttps://aur.archlinux.org/paru-bin.git\e[30;1m` into `\e[0m/tmp/paru\e[30;1m` ...\e[0m\n'
+            echo '\n\e[30;1mCloning `\e[0mhttps://aur.archlinux.org/paru.git\e[30;1m` into `\e[0m/tmp/paru\e[30;1m` ...\e[0m\n'
             git clone https://aur.archlinux.org/paru-bin.git /tmp/paru
             cd /tmp/paru
             echo '\n\e[30;1mRunning `\e[0mmakepkg -si --noconfirm\e[30;1m` ...\e[0m\n'
